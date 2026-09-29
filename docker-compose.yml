@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: jd_efficiency_db
+    restart: always
+    environment:
+      POSTGRES_DB: john_deere_efficiency
+      POSTGRES_USER: jd_user
+      POSTGRES_PASSWORD: jd_password_2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jd_user -d john_deere_efficiency"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: jd_efficiency_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://jd_user:jd_password_2026@db:5432/john_deere_efficiency
+      JOHN_DEERE_CLIENT_ID: YOUR_CLIENT_ID_HERE
+      JOHN_DEERE_CLIENT_SECRET: YOUR_CLIENT_SECRET_HERE
+      JOHN_DEERE_ORG_ID: YOUR_ORG_ID_HERE
+      JOHN_DEERE_SANDBOX_URL: https://sandboxapi.deere.com
+      JWT_SECRET_KEY: your_super_secret_jwt_key_change_in_production
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+    command: >
+      sh -c "pip install -r requirements.txt &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+
+  frontend:
+    build: ./frontend
+    container_name: jd_efficiency_frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data:

@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "🔍 Testing PostgreSQL connection..."
+docker exec jd_efficiency_db psql -U jd_user -d john_deere_efficiency -c "SELECT version();"
+echo "✅ Database connection successful!"
+echo ""
+echo "📊 Database info:"
+docker exec jd_efficiency_db psql -U jd_user -d john_deere_efficiency -c "\l"
+echo ""
+echo "📝 Tables (should be empty for now):"
+docker exec jd_efficiency_db psql -U jd_user -d john_deere_efficiency -c "\dt"
