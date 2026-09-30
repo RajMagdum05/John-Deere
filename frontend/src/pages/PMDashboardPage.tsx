@@ -43,6 +43,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 import LanguageToggle from '../components/common/LanguageToggle';
+import { buildApiUrl } from '../services/apiConfig';
 import {
   BarChart,
   Bar,
@@ -312,7 +313,7 @@ export const PMDashboardPage: React.FC = () => {
     try {
       let response: Response;
       try {
-        response = await fetch(`http://localhost:8000/api/pm/dashboard?range=${range}`);
+        response = await fetch(buildApiUrl(`/api/pm/dashboard?range=${range}`));
       } catch {
         response = await fetch(`/api/pm/dashboard?range=${range}`);
       }

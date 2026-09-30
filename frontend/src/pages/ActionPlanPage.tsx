@@ -22,6 +22,7 @@ import FarmerNavigation from '../components/common/FarmerNavigation';
 import SoundWaveAnimation from '../components/SoundWaveAnimation';
 import { playNotificationSound } from '../utils/soundUtil';
 import { useLanguage } from '../i18n/LanguageContext';
+import { buildApiUrl } from '../services/apiConfig';
 
 export const ActionPlanPage: React.FC = () => {
   const { alertId } = useParams<{ alertId: string }>();
@@ -62,7 +63,7 @@ export const ActionPlanPage: React.FC = () => {
       };
 
       try {
-        await fetch('http://localhost:8000/api/farmer/actions', {
+        await fetch(buildApiUrl('/api/farmer/actions'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
@@ -115,7 +116,7 @@ export const ActionPlanPage: React.FC = () => {
       };
 
       try {
-        await fetch('http://localhost:8000/api/farmer/actions', {
+        await fetch(buildApiUrl('/api/farmer/actions'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),

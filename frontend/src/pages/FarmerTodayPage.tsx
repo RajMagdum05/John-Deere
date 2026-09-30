@@ -33,6 +33,7 @@ import NotificationsActiveRoundedIcon from '@mui/icons-material/NotificationsAct
 import AppHeader from '../components/common/AppHeader';
 import FarmerNavigation from '../components/common/FarmerNavigation';
 import { useLanguage } from '../i18n/LanguageContext';
+import { buildApiUrl } from '../services/apiConfig';
 
 export interface Alert {
   id: string;
@@ -101,7 +102,7 @@ export const FarmerTodayPage: React.FC = () => {
     try {
       let response: Response;
       try {
-        response = await fetch('http://localhost:8000/api/farmer/live-machines');
+        response = await fetch(buildApiUrl('/api/farmer/live-machines'));
       } catch {
         response = await fetch('/api/farmer/live-machines');
       }
@@ -121,10 +122,10 @@ export const FarmerTodayPage: React.FC = () => {
       setLoading(true);
       setError(null);
 
-      // Try local dev server backend first, fallback to relative API
+      // Try configured backend first, fallback to relative API
       let response: Response;
       try {
-        response = await fetch('http://localhost:8000/api/farmer/alerts?date=2026-09-29');
+        response = await fetch(buildApiUrl('/api/farmer/alerts?date=2026-09-29'));
       } catch {
         response = await fetch('/api/farmer/alerts?date=2026-09-29');
       }

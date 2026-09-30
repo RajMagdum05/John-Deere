@@ -24,6 +24,7 @@ import TimelineRoundedIcon from '@mui/icons-material/TimelineRounded';
 import AppHeader from '../components/common/AppHeader';
 import FarmerNavigation from '../components/common/FarmerNavigation';
 import { useLanguage } from '../i18n/LanguageContext';
+import { buildApiUrl } from '../services/apiConfig';
 
 export interface PatternData {
   alert_id: string;
@@ -61,7 +62,7 @@ export const PatternDetailsPage: React.FC = () => {
       const targetId = alertId || stateAlert?.id || 'alert-001';
       let response: Response;
       try {
-        response = await fetch(`http://localhost:8000/api/farmer/alerts/${targetId}/pattern`);
+        response = await fetch(buildApiUrl(`/api/farmer/alerts/${targetId}/pattern`));
       } catch {
         response = await fetch(`/api/farmer/alerts/${targetId}/pattern`);
       }
@@ -169,7 +170,7 @@ export const PatternDetailsPage: React.FC = () => {
     try {
       let response: Response;
       try {
-        response = await fetch('http://localhost:8000/api/farmer/actions', {
+        response = await fetch(buildApiUrl('/api/farmer/actions'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -218,7 +219,7 @@ export const PatternDetailsPage: React.FC = () => {
     if (!pattern) return;
     try {
       try {
-        await fetch('http://localhost:8000/api/farmer/actions', {
+        await fetch(buildApiUrl('/api/farmer/actions'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
