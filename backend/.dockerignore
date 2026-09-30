@@ -1,8 +1,10 @@
-__pycache__
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
 .env
-venv
-.venv
-.pytest_cache
+.venv/
+venv/
+.pytest_cache/
+.git/
+app.db

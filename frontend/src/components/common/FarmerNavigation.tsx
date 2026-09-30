@@ -3,8 +3,7 @@ import { Tabs, Tab, Container, Paper } from '@mui/material';
 import TodayIcon from '@mui/icons-material/Today';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
-import HistoryIcon from '@mui/icons-material/History';
+import TableChartIcon from '@mui/icons-material/TableChart';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -14,14 +13,19 @@ export const FarmerNavigation: React.FC = () => {
 
   const navItems = [
     { path: '/farmer/today', label: t('nav.today'), icon: <TodayIcon fontSize="small" /> },
+    { path: '/farmer/live', label: t('nav.liveDashboard'), icon: <PrecisionManufacturingIcon fontSize="small" /> },
+    { path: '/farmer/view-data', label: t('nav.viewData'), icon: <TableChartIcon fontSize="small" /> },
     { path: '/farmer/action-plan', label: t('nav.actionPlan'), icon: <AssignmentTurnedInIcon fontSize="small" /> },
     { path: '/farmer/machines', label: t('nav.machines'), icon: <PrecisionManufacturingIcon fontSize="small" /> },
-    { path: '/farmer/assistant', label: t('nav.askAssistant'), icon: <SmartToyIcon fontSize="small" /> },
-    { path: '/farmer/history', label: t('nav.history'), icon: <HistoryIcon fontSize="small" /> },
   ];
 
   const currentTab = navItems.findIndex((item) => item.path === location.pathname);
   const tabValue = currentTab >= 0 ? currentTab : false;
+
+  const shouldHideNav = location.pathname.includes('/prepare-data');
+  if (shouldHideNav) {
+    return null;
+  }
 
   return (
     <Paper

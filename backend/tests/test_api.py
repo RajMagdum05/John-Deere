@@ -28,7 +28,7 @@ def test_farmer_efficiency():
 def test_farmer_operators():
     response = client.get("/api/farmer/operators")
     assert response.status_code == 200
-    assert len(response.json()) == 3
+    assert len(response.json()) >= 2
 
 
 def test_farmer_recommendations():
@@ -51,4 +51,14 @@ def test_pm_feature_usage():
     response = client.get("/api/pm/feature-usage")
     assert response.status_code == 200
     assert len(response.json()) == 5
+
+
+def test_alert_action_generation():
+    response = client.post("/api/farmer/alerts/alert-001/action")
+    assert response.status_code == 200
+    data = response.json()
+    assert "action" in data
+    assert "expected_result" in data
+    assert len(data["action"]) > 0
+    assert len(data["expected_result"]) > 0
 

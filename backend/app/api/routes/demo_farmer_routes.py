@@ -64,6 +64,29 @@ def get_demo_equipment(db: Session = Depends(get_db)):
     )
 
 
+@router.post("/devices/connect")
+def connect_demo_device(payload: dict, db: Session = Depends(get_db)):
+    """Generic device connect endpoint matching POST /api/demo/devices/connect."""
+    device_id = payload.get("device_id", "")
+    farmer_id = payload.get("farmer_id", DEMO_FARMER_ID)
+    
+    # Match against equipment
+    device = connect_equipment_device(db, device_id)
+    if not device:
+        # Fallback by model match
+        all_eq = db.query(Equipment).filter(Equipment.farmer_id == DEMO_FARMER_ID).all()
+        for eq in all_eq:
+            if device_id.lower() in (eq.model or '').lower() or device_id.lower() in eq.id.lower():
+                device = connect_equipment_device(db, eq.id)
+                break
+
+    return {
+        "status": "connected",
+        "device_id": device.id if device else device_id,
+        "farmer_id": farmer_id,
+    }
+
+
 @router.post("/equipment/{equipment_id}/connect", response_model=DemoEquipmentResponse)
 def connect_equipment(equipment_id: str, db: Session = Depends(get_db)):
     """Connect a single equipment item."""

@@ -31,6 +31,14 @@ class Settings(BaseSettings):
         default="your_secret_key",
         description="JWT Secret Key for authentication",
     )
+    GEMINI_API_KEY: str = Field(
+        default="",
+        description="Google Gemini API Key",
+    )
+    GEMINI_MODEL: str = Field(
+        default="gemini-1.5-flash",
+        description="Google Gemini Model Name",
+    )
 
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -40,3 +48,8 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
+# Direct export aliases for convenience
+GEMINI_API_KEY = settings.GEMINI_API_KEY
+GEMINI_MODEL = settings.GEMINI_MODEL
+

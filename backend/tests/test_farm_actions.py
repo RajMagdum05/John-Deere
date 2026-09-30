@@ -6,6 +6,7 @@ from app.models import FarmAction
 from app.services.demo_telemetry_service import (
     DEMO_FARMER_ID,
     ensure_demo_fixtures,
+    populate_demo_telemetry_sync,
 )
 from app.services.session_analytics_service import extract_session_features
 from app.services.action_plan_service import ActionPlanService
@@ -18,6 +19,7 @@ class TestFarmActionLoop(unittest.TestCase):
         db = SessionLocal()
         try:
             ensure_demo_fixtures(db)
+            populate_demo_telemetry_sync(db)
         finally:
             db.close()
 

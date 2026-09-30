@@ -1,5 +1,6 @@
 export const translations = {
   en: {
+    // App Branding & Commons
     'app.name': 'Farm Action Loop',
     'app.tagline': 'Find the pattern. Take one action. Measure the result.',
     'app.demoMode': 'Demo mode',
@@ -22,6 +23,95 @@ export const translations = {
     'common.demoNotice': 'Demo access only — no real authentication or live customer data is used.',
     'common.retry': 'Retry',
 
+    // Splash & Landing Screen (User Requested Keys)
+    'splash_welcome': 'Welcome to Operations Center',
+    'select_role': 'Select your role to continue',
+    'im_farmer': "I'm a Farmer",
+    'im_pm': "I'm a Product Manager",
+    'farmer_desc': 'View alerts, take actions, see results',
+    'pm_desc': 'View analytics, insights, roadmap',
+    'continue': 'Continue',
+    'continue_farmer': 'Continue as Farmer',
+    'continue_pm': 'Continue as PM',
+    'connect_devices': 'Connect Your Machines',
+    'start_data_prep': 'Start Data Preparation',
+    'today_alerts': "Today's Alerts",
+    'view_pattern': 'View Pattern',
+    'recommended_action': 'Recommended Action',
+    'i_will_try': 'I Will Try This',
+    'not_now': 'Not Now',
+    'day_completed': 'Day {day} Completed',
+    'next_day': 'Next Day',
+    'complete_setup': 'Complete Setup',
+    'back_to_today': 'Back to Today',
+    'your_results': 'Your Results',
+    'see_impact': 'See the impact of your action',
+    'before': 'Before',
+    'after': 'After',
+    'improvement': 'improvement',
+    'fuel_saved': 'Fuel Saved',
+    'cost_saved': 'Cost Saved',
+    'co2_reduced': 'CO2 Reduced',
+    'it_worked': 'It worked! ✓',
+    'share_results': 'Share Results',
+    'pm_dashboard_title': 'Product Manager Dashboard',
+    'alert_performance': 'Alert Performance',
+    'action_effectiveness': 'Action Effectiveness',
+    'farmer_segments': 'Farmer Segments',
+    'time_patterns': 'Time Patterns',
+    'impact_metrics': 'Impact Metrics',
+    'product_recommendations': 'Product Recommendations',
+
+    // Extended Feature Keys
+    'connect.progress': 'Connection Progress',
+    'connect.devicesConnected': '{connected} of {total} devices connected',
+    'connect.allDevicesConnected': 'All devices connected ✓',
+    'connect.connectAllToContinue': 'Connect all 4 devices to continue ({connected}/4 ready)',
+    'connect.linkDevices': 'Link 4 devices to prepare demo data',
+    'prep.timeline': 'Timeline: Day {day} of {total}',
+    'prep.step': 'Step {day} of {total}',
+    'prep.identifiedAlerts': 'Identified Alerts ({count})',
+    'prep.activeIngestion': 'Telemetry Ingestion Active',
+    'prep.analysisComplete': 'Analysis Complete',
+    'prep.completeSetup': 'Complete Setup & View Alerts',
+    'pattern.occurrencesHistory': 'Occurrences History',
+    'pattern.today': 'today',
+    'pattern.aiAnalysis': 'AI Analysis',
+    'pattern.likelyCause': 'Likely Cause',
+    'pattern.synthesized': 'Synthesized from {count} telemetry occurrences across 7 days',
+    'pm.headerSubtitle': 'Alert Performance, Farmer Behavioral Analytics & Roadmap Decision Support',
+    'pm.exportCsv': 'Export CSV',
+    'pm.filterAll': 'All Alerts',
+    'pm.time7d': 'Last 7 Days',
+    'pm.time30d': 'Last 30 Days',
+    'pm.time90d': 'Last 90 Days',
+    'pm.kpiTotalAlerts': 'Total Alerts Dispatched',
+    'pm.kpiActionRate': 'Overall Action Rate',
+    'pm.kpiSuccessRate': 'Action Success Rate',
+    'pm.kpiTotalFuelSaved': 'Total Fuel Saved',
+    'pm.kpiTotalFuelSub': 'Per day (~₹1.04 Lakhs daily)',
+    'pm.alertPerfTitle': '1. Alert Performance (Which Alerts Are Ignored)',
+    'pm.alertPerfSub': 'Comparing acted vs ignored volumes by operational alert type',
+    'pm.timePatternsTitle': '4. Time Patterns (When Alerts Are Ignored)',
+    'pm.timePatternsSub': 'Ignore rate by dispatch window during the day',
+    'pm.actionEffTitle': '2. Action Effectiveness (Which Advice Works)',
+    'pm.actionEffSub': 'Measuring success rate when farmers commit to recommendations',
+    'pm.farmerSegTitle': '3. Farmer Segments (Who Acts vs. Ignores)',
+    'pm.farmerSegSub': 'Action rates broken down by farm acreage tier',
+    'pm.impactTitle': '5. Impact Metrics (Proof The Platform Works)',
+    'pm.productRecTitle': '6. Product Insights & Recommendations',
+    'pm.productRecSub': 'Data-driven insights and opportunities to help product managers prioritize product enhancements',
+    'pm.executiveTakeaway': 'Leadership Opportunity: When operators adopt recommendations, average savings reach ~₹870/day per tractor. Data supports expanding in-cab audio cues to broaden adoption.',
+    'prep.fetchingData': 'Fetching data from machines...',
+    'prep.analyzingPatterns': 'Analyzing patterns...',
+    'prep.almostDone': 'Almost done...',
+    'prep.telemetrySubtitle': 'Processing high-frequency equipment telemetry & Operations Center logs',
+    'anim.sendingToTractor': 'Sending notification to tractor...',
+    'anim.actionRecorded': 'Action Recorded!',
+    'anim.guidanceDispatched': 'In-cab guidance dispatched to {equipment}',
+    'anim.connectingTerminal': 'Connecting to {equipment} in-cab terminal...',
+
+    // Role Selection
     'role.chooseTitle': 'Choose your experience',
     'role.chooseSubtitle': 'A John Deere API sandbox concept for smarter farm operations.',
     'role.farmer': 'Farmer',
@@ -31,6 +121,7 @@ export const translations = {
     'role.selectFarmer': 'Enter farmer experience',
     'role.selectPM': 'Enter product manager experience',
 
+    // Login
     'login.farmerTitle': 'Welcome to your farm',
     'login.pmTitle': 'Product insights workspace',
     'login.mobileOrEmail': 'Mobile number or email',
@@ -39,13 +130,38 @@ export const translations = {
     'login.signingIn': 'Signing in...',
     'login.invalidRole': 'Invalid role selected.',
 
+    // Navigation
     'nav.today': 'Today',
     'nav.actionPlan': 'My Action Plan',
     'nav.machines': 'My Machines',
     'nav.askAssistant': 'Ask Assistant',
     'nav.history': 'History',
     'nav.pmDashboard': 'Product Manager View',
+    'nav.liveDashboard': 'Live Dashboard',
+    'nav.viewData': 'View Data',
 
+    // Live Dashboard
+    'live.updatesEvery5Sec': 'Updates every 5 seconds',
+    'live.status': 'Status',
+    'live.working': 'Working',
+    'live.atRest': 'At Rest',
+    'live.starting': 'Starting...',
+    'live.location': 'Location',
+    'live.fieldC': 'Field C',
+    'live.speed': 'Speed',
+    'live.fuel': 'Fuel',
+    'live.idle': 'Idle',
+
+    // Day-by-Day Progression
+    'day.dayXofY': 'Day {0} of {1}',
+    'day.playing': '▶ Playing',
+    'day.paused': '⏸ Paused',
+    'day.playAnimation': 'Play Animation',
+    'day.pause': 'Pause',
+    'day.dayX': 'Day {0}',
+    'day.historicalData': 'Historical data',
+
+    // Connect Devices
     'connect.title': 'Connect your equipment',
     'connect.subtitle': 'Add your machines to begin receiving simple farm action guidance.',
     'connect.notConnected': 'Not connected',
@@ -65,6 +181,7 @@ export const translations = {
     'connect.continueToData': 'Continue to data preparation',
     'connect.deviceConnectionNote': 'Connect machines individually by hand or all at once to enable seven-day telemetry simulation.',
 
+    // Equipment Types
     'equipment.tractor': 'Tractor',
     'equipment.sprayer': 'Sprayer',
     'equipment.generalFieldWork': 'General field work',
@@ -72,6 +189,7 @@ export const translations = {
     'equipment.highPowerWork': 'Higher-power tillage and haulage',
     'equipment.cropSpraying': 'Crop spraying and coverage work',
 
+    // Sync & Data Prep
     'sync.title': 'Preparing farm data',
     'sync.subtitle': 'We will simulate seven days of connected-equipment activity for this concept demo.',
     'sync.simulationNote': 'Data simulation will be enabled in the next build phase.',
@@ -89,6 +207,7 @@ export const translations = {
     'sync.daySix': 'Day 6',
     'sync.daySeven': 'Day 7',
 
+    // Today Page
     'today.dataReadyTitle': 'Your farm data is ready',
     'today.dataReadyDescription': 'Your connected equipment has seven days of simulated activity ready for analysis.',
     'today.connectedMachines': 'Connected machines',
@@ -102,20 +221,29 @@ export const translations = {
     'today.noAttention': 'No priority action is ready yet',
     'today.viewActionPlan': 'View my action plan',
     'today.analysePatterns': 'Analyse farm patterns',
+    'today.noAlerts': 'No alerts today',
+    'today.noAlertsDescription': 'All machines are operating normally.',
 
+    // Analysis
     'analysis.run': 'Analyse my farm patterns',
     'analysis.running': 'Analysing recent machine activity...',
     'analysis.ready': 'Your action guidance is ready.',
     'analysis.noData': 'Prepare your seven-day demo data before running analysis.',
     'analysis.error': 'We could not analyse your farm patterns. Please try again.',
 
+    // Actions & Recommendations
     'action.priority': 'Priority',
     'action.needsAttention': 'Needs attention',
     'action.whatHappened': 'What needs attention?',
     'action.whyShowing': 'Why are we showing this?',
     'action.whatToDo': 'What to Do',
     'action.tellOperator': 'Tell your operator:',
-    'action.expectedResult': 'Expected result:',
+    'action.expectedResult': 'Expected Result',
+    'action.generateAction': '💡 Generate Action',
+    'action.generating': 'Generating...',
+    'action.recommendedAction': '💡 Recommended Action',
+    'action.saveAction': 'Save Action',
+    'action.dismiss': 'Dismiss',
     'action.step': 'Step',
     'action.confidence': 'Guidance confidence',
     'action.confidenceLow': 'Low',
@@ -163,29 +291,16 @@ export const translations = {
     'action.attentionSprayerDesc': '{equipment} showed an unusual spraying-work pattern.',
     'action.attentionMonitorDesc': '{equipment} needs one more comparable session before strong guidance is given.',
 
-    // Alert messages (NEW)
+    // Alerts
     'alert.highIdleTime': 'High idle time',
-    'alert.lowFuel': 'Low fuel',
+    'alert.lowFuel': 'Low fuel efficiency',
     'alert.highSpeedVariation': 'Variable work speed',
     'alert.repeated': 'Repeated',
     'alert.times': 'times',
     'alert.viewPattern': 'View Pattern',
     'alert.viewDetails': 'View Details',
 
-    // Today page (NEW)
-    'today.noAlerts': 'No alerts today',
-    'today.noAlertsDescription': 'All machines are operating normally.',
-
-    // Data ready / not ready (NEW)
-    'dataNotReady.title': 'Farm data is not ready',
-    'dataNotReady.description': 'Please connect your equipment and prepare demo farm data first.',
-    'dataNotReady.connectDevices': 'Connect Equipment',
-    'dataReady.title': 'Farm data is ready',
-    'dataReady.machines': '{count} machines connected',
-    'dataReady.days': '{count} days of simulated data',
-    'dataReady.description': 'Your data is prepared and ready for analysis.',
-
-    // Pattern page (NEW)
+    // Pattern Details
     'nav.patternDetails': 'Pattern Details',
     'pattern.repeatedPattern': 'Repeated Pattern Detected',
     'pattern.whatsHappening': "What's happening:",
@@ -199,27 +314,44 @@ export const translations = {
     'pattern.notFound': 'Pattern not found',
     'pattern.notFoundDescription': 'No repeated pattern detected for this alert.',
 
+    // Action Recorded
+    'actionRecorded.title': 'Action Recorded',
+    'actionRecorded.youWillTry': 'You will try:',
+    'actionRecorded.nextStep': 'Next step:',
+    'actionRecorded.weWillShow': 'We will show you:',
+    'actionRecorded.idleComparison': 'Idle time before vs. after',
+    'actionRecorded.dieselSaved': 'Diesel saved',
+    'actionRecorded.ok': 'OK',
+
+    // Before/After Result
+    'beforeAfter.title': 'Result: Action Worked',
+    'beforeAfter.before': 'Before (Day 7 / Sep 29):',
+    'beforeAfter.after': 'After (Day 8 / Sep 30):',
+    'beforeAfter.result': 'Result:',
+    'beforeAfter.savedLitres': 'Saved {litres} litres diesel',
+    'beforeAfter.lessIdle': '{percent}% less idle time',
+    'beforeAfter.savedRupees': 'Saved ₹{amount} today',
+    'beforeAfter.shareResult': 'Share Result',
+    'beforeAfter.backToToday': 'Back to Today',
+
     'farmer.todayTitle': 'Today at your farm',
     'farmer.todayEmpty': 'Your connected-machine overview will appear after equipment connection and data preparation.',
     'farmer.goToEquipment': 'Go to equipment',
-
     'farmer.actionPlanTitle': 'My Action Plan',
     'farmer.actionPlanEmpty': 'Your prioritized action guidance will appear after the analytics engine reviews comparable work sessions.',
-
     'farmer.machinesTitle': 'My Machines',
     'farmer.machinesEmpty': 'Connected machine status, fuel, work time, and activity summaries will appear here.',
-
     'farmer.assistantTitle': 'Farm Action Assistant',
     'farmer.assistantEmpty': 'The local assistant will be added after the farm analytics and action-plan workflow are complete.',
-
     'farmer.historyTitle': 'Question and Action History',
     'farmer.historyEmpty': 'Your saved questions, recommendations, and action outcomes will appear here.',
 
     'pm.title': 'Product Manager Analytics Workspace',
     'pm.empty': 'This workspace will show anonymized insight-to-action patterns after the farmer workflow and analytics engine are complete.',
-    'pm.noFakeDataNotice': 'No live customer data or business-impact claims are shown in this concept prototype.'
+    'pm.noFakeDataNotice': 'No live customer data or business-impact claims are shown in this concept prototype.',
   },
   mr: {
+    // App Branding & Commons
     'app.name': 'शेती कृती चक्र',
     'app.tagline': 'पॅटर्न ओळखा. एक कृती करा. परिणाम मोजा.',
     'app.demoMode': 'डेमो मोड',
@@ -242,6 +374,96 @@ export const translations = {
     'common.demoNotice': 'केवळ डेमो प्रवेश — प्रत्यक्ष प्रमाणीकरण किंवा लाईव्ह ग्राहक डेटा वापरलेला नाही.',
     'common.retry': 'पुन्हा प्रयत्न करा',
 
+    // Splash & Landing Screen (User Requested Keys)
+    'splash_welcome': 'ऑपरेशन्स सेंटरमध्ये स्वागत आहे',
+    'select_role': 'सुरू ठेवण्यासाठी आपली भूमिका निवडा',
+    'im_farmer': 'मी शेतकरी आहे',
+    'im_pm': 'मी उत्पादन व्यवस्थापक आहे',
+    'farmer_desc': 'सूचना पहा, कृती करा, निकाल पहा',
+    'pm_desc': 'अ‍ॅनालिटिक्स, अंतर्दृष्टी, रोडमॅप पहा',
+    'continue': 'पुढे चालू ठेवा',
+    'continue_farmer': 'शेतकरी म्हणून पुढे जा',
+    'continue_pm': 'उत्पादन व्यवस्थापक म्हणून पुढे जा',
+    'connect_devices': 'आपली यंत्रे जोडा',
+    'start_data_prep': 'डेटा तयार करण्यास सुरुवात करा',
+    'today_alerts': 'आजच्या सूचना',
+    'view_pattern': 'पॅटर्न पहा',
+    'recommended_action': 'शिफारस केलेली कृती',
+    'i_will_try': 'मी हे करून पाहीन',
+    'not_now': 'आता नको',
+    'day_completed': 'दिवस {day} पूर्ण झाला',
+    'next_day': 'पुढचा दिवस',
+    'complete_setup': 'सेटअप पूर्ण करा',
+    'back_to_today': 'आजच्या सूचनांकडे परत जा',
+    'your_results': 'आपले निकाल',
+    'see_impact': 'आपल्या कृतीचा प्रभाव पहा',
+    'before': 'पूर्वी',
+    'after': 'नंतर',
+    'improvement': 'सुधारणा',
+    'fuel_saved': 'इंधन बचत',
+    'cost_saved': 'खर्च बचत',
+    'co2_reduced': 'CO2 घट',
+    'it_worked': 'हे यशस्वी झाले! ✓',
+    'share_results': 'निकाल शेअर करा',
+    'pm_dashboard_title': 'प्रॉडक्ट मॅनेजर डॅशबोर्ड',
+    'alert_performance': 'सूचना कामगिरी',
+    'action_effectiveness': 'कृती प्रभावकारकता',
+    'farmer_segments': 'शेतकरी विभाग',
+    'time_patterns': 'वेळ पद्धती',
+    'impact_metrics': 'प्रभाव मेट्रिक्स',
+    'product_recommendations': 'उत्पादन शिफारसी',
+
+    // Extended Feature Keys
+    'connect.progress': 'जोडणी प्रगती',
+    'connect.devicesConnected': '{total} पैकी {connected} यंत्रे जोडली',
+    'connect.allDevicesConnected': 'सर्व यंत्रे जोडली गेली ✓',
+    'connect.connectAllToContinue': 'पुढे जाण्यासाठी सर्व ४ यंत्रे जोडा ({connected}/४ तयार)',
+    'connect.linkDevices': 'डेमो डेटा तयार करण्यासाठी ४ यंत्रे जोडा',
+    'prep.timeline': 'टाइमलाइन: दिवस {day} पैकी {total}',
+    'prep.step': 'पायरी {day} पैकी {total}',
+    'prep.identifiedAlerts': 'ओळखलेल्या सूचना ({count})',
+    'prep.activeIngestion': 'टेलिमेट्री डेटा संकलन सुरू आहे',
+    'prep.analysisComplete': 'विश्लेषण पूर्ण झाले',
+    'prep.completeSetup': 'सेटअप पूर्ण करा आणि सूचना पहा',
+    'pattern.occurrencesHistory': 'घटना इतिहास',
+    'pattern.today': 'आज',
+    'pattern.aiAnalysis': 'AI विश्लेषण',
+    'pattern.likelyCause': 'संभाव्य कारण',
+    'pattern.synthesized': '७ दिवसांमधील {count} टेलिमेट्री घटनांमधून विश्लेषित',
+    'pm.headerSubtitle': 'सूचना कामगिरी, शेतकरी वर्तन विश्लेषण आणि रोडमॅप निर्णय सहाय्य',
+    'pm.exportCsv': 'CSV निर्यात करा',
+    'pm.filterAll': 'सर्व सूचना',
+    'pm.time7d': 'मागील ७ दिवस',
+    'pm.time30d': 'मागील ३० दिवस',
+    'pm.time90d': 'मागील ९० दिवस',
+    'pm.kpiTotalAlerts': 'एकूण पाठवलेल्या सूचना',
+    'pm.kpiActionRate': 'एकूण कृती दर',
+    'pm.kpiSuccessRate': 'कृती यश दर',
+    'pm.kpiTotalFuelSaved': 'एकूण वाचवलेले इंधन',
+    'pm.kpiTotalFuelSub': 'दररोज (~₹१.०४ लाख दररोज बचत)',
+    'pm.alertPerfTitle': '१. सूचना कामगिरी (कोणत्या सूचना दुर्लक्षित केल्या जातात)',
+    'pm.alertPerfSub': 'कामकाज सूचना प्रकारानुसार कृती केलेले विरुद्ध दुर्लक्षित प्रमाण',
+    'pm.timePatternsTitle': '४. वेळ पद्धती (सूचना कधी दुर्लक्षित होतात)',
+    'pm.timePatternsSub': 'दिवसाच्या वेळेनुसार दुर्लक्ष करण्याचे प्रमाण',
+    'pm.actionEffTitle': '२. कृती प्रभावकारकता (कोणता सल्ला यशस्वी ठरतो)',
+    'pm.actionEffSub': 'शेतकऱ्यांनी शिफारसींचा अवलंब केल्यावर यश दर मोजणे',
+    'pm.farmerSegTitle': '३. शेतकरी विभाग (कोण कृती करतो विरुद्ध दुर्लक्ष करतो)',
+    'pm.farmerSegSub': 'शेताच्या क्षेत्रफळानुसार कृती दर वर्गीकरण',
+    'pm.impactTitle': '५. प्रभाव मेट्रिक्स (प्लॅटफॉर्म कार्य करत असल्याचा पुरावा)',
+    'pm.impactSub': 'कृती केलेल्या विरुद्ध दुर्लक्षित शेतकऱ्यांमधील प्रत्यक्ष इंधन आणि खर्च बचत तुलना',
+    'pm.productRecTitle': '६. उत्पादन अंतर्दृष्टी आणि शिफारसी',
+    'pm.productRecSub': 'उत्पादन व्यवस्थापकांना प्राधान्यक्रम ठरवण्यासाठी डेटा-चालित अंतर्दृष्टी आणि संधी',
+    'pm.executiveTakeaway': 'नेतृत्व संधी: जेव्हा शेतकरी शिफारसींचा अवलंब करतात, तेव्हा प्रति ट्रॅक्टर ~₹८७०/दिवस बचत होते. इन-कॅब ऑडिओ सूचना वाढवल्याने सहभाग अधिक विस्तारू शकतो.',
+    'prep.fetchingData': 'यंत्रांवरून डेटा गोळा करत आहे...',
+    'prep.analyzingPatterns': 'पॅटर्नचे विश्लेषण करत आहे...',
+    'prep.almostDone': 'जवळजवळ पूर्ण झाले...',
+    'prep.telemetrySubtitle': 'उच्च-वारंवारता टेलिमेट्री आणि ऑपरेशन्स सेंटर लॉगवर प्रक्रिया करत आहे',
+    'anim.sendingToTractor': 'ट्रॅक्टरला सूचना पाठवत आहे...',
+    'anim.actionRecorded': 'कृती नोंदवली गेली!',
+    'anim.guidanceDispatched': '{equipment} कडे इन-कॅब मार्गदर्शन पाठवले',
+    'anim.connectingTerminal': '{equipment} इन-कॅब टर्मिनलशी जोडत आहे...',
+
+    // Role Selection
     'role.chooseTitle': 'तुमचा अनुभव निवडा',
     'role.chooseSubtitle': 'अधिक स्मार्ट शेती कामकाजासाठी जॉन डीअर API सँडबॉक्स संकल्पना.',
     'role.farmer': 'शेतकरी',
@@ -251,6 +473,7 @@ export const translations = {
     'role.selectFarmer': 'शेतकरी अनुभवात जा',
     'role.selectPM': 'उत्पादन व्यवस्थापक अनुभवात जा',
 
+    // Login
     'login.farmerTitle': 'तुमच्या शेतात स्वागत आहे',
     'login.pmTitle': 'उत्पादन माहिती कार्यक्षेत्र',
     'login.mobileOrEmail': 'मोबाईल नंबर किंवा ईमेल',
@@ -259,13 +482,38 @@ export const translations = {
     'login.signingIn': 'साइन इन होत आहे...',
     'login.invalidRole': 'चुकीची भूमिका निवडली आहे.',
 
+    // Navigation
     'nav.today': 'आज',
     'nav.actionPlan': 'माझी कृती योजना',
     'nav.machines': 'माझी यंत्रे',
     'nav.askAssistant': 'सहाय्यकाला विचारा',
     'nav.history': 'इतिहास',
     'nav.pmDashboard': 'उत्पादन व्यवस्थापक दृश्य',
+    'nav.liveDashboard': 'लाईव्ह डॅशबोर्ड',
+    'nav.viewData': 'डेटा पहा',
 
+    // Live Dashboard
+    'live.updatesEvery5Sec': 'दर ५ सेकंदाला अद्ययावत',
+    'live.status': 'स्थिती',
+    'live.working': 'काम करत आहे',
+    'live.atRest': 'विश्रांतीवर',
+    'live.starting': 'सुरू होत आहे...',
+    'live.location': 'स्थान',
+    'live.fieldC': 'फील्ड C',
+    'live.speed': 'वेग',
+    'live.fuel': 'इंधन',
+    'live.idle': 'निष्क्रिय',
+
+    // Day-by-Day Animation
+    'day.dayXofY': 'दिवस {0} पैकी {1}',
+    'day.playing': '▶ चालू आहे',
+    'day.paused': '⏸ थांबले',
+    'day.playAnimation': 'ॲनिमेशन चालू करा',
+    'day.pause': 'थांबवा',
+    'day.dayX': 'दिवस {0}',
+    'day.historicalData': 'ऐतिहासिक डेटा',
+
+    // Connect Equipment
     'connect.title': 'तुमची यंत्रे जोडा',
     'connect.subtitle': 'सोपे शेती कृती मार्गदर्शन मिळवण्यासाठी तुमची यंत्रे जोडा.',
     'connect.notConnected': 'जोडलेले नाही',
@@ -285,6 +533,7 @@ export const translations = {
     'connect.continueToData': 'डेटा तयारीकडे पुढे जा',
     'connect.deviceConnectionNote': 'सात दिवसांचे टेलिमेट्री सिम्युलेशन सक्षम करण्यासाठी एकामागून एक किंवा सर्व यंत्रे एकत्र जोडा.',
 
+    // Equipment Types
     'equipment.tractor': 'ट्रॅक्टर',
     'equipment.sprayer': 'फवारणी यंत्र',
     'equipment.generalFieldWork': 'सामान्य शेतकाम',
@@ -292,6 +541,7 @@ export const translations = {
     'equipment.highPowerWork': 'जास्त शक्तीची नांगरणी आणि वाहतूक',
     'equipment.cropSpraying': 'पिकांची फवारणी आणि क्षेत्र आच्छादन काम',
 
+    // Sync & Data Prep
     'sync.title': 'शेताचा डेटा तयार करत आहे',
     'sync.subtitle': 'या संकल्पना डेमोसाठी आम्ही जोडलेल्या यंत्रांच्या सात दिवसांच्या कामकाजाचे अनुकरण करू.',
     'sync.simulationNote': 'डेटा सिम्युलेशन पुढील विकास टप्प्यात सक्षम केले जाईल.',
@@ -309,6 +559,7 @@ export const translations = {
     'sync.daySix': 'दिवस ६',
     'sync.daySeven': 'दिवस ७',
 
+    // Today Page
     'today.dataReadyTitle': 'तुमचा शेत डेटा तयार आहे',
     'today.dataReadyDescription': 'तुमच्या जोडलेल्या यंत्रांचा सात दिवसांचा सिम्युलेटेड कामकाजाचा डेटा विश्लेषणासाठी तयार आहे.',
     'today.connectedMachines': 'जोडलेली यंत्रे',
@@ -322,20 +573,29 @@ export const translations = {
     'today.noAttention': 'अद्याप कोणतीही प्राधान्य कृती तयार नाही',
     'today.viewActionPlan': 'माझी कृती योजना पहा',
     'today.analysePatterns': 'शेताच्या पॅटर्नचे विश्लेषण करा',
+    'today.noAlerts': 'आज कोणत्याही सूचना नाहीत',
+    'today.noAlertsDescription': 'सर्व यंत्रे सामान्यपणे कार्यरत आहेत.',
 
+    // Analysis
     'analysis.run': 'माझ्या शेताच्या पॅटर्नचे विश्लेषण करा',
     'analysis.running': 'अलीकडील मशीन कामकाजाचे विश्लेषण होत आहे...',
     'analysis.ready': 'तुमचे कृती मार्गदर्शन तयार आहे.',
     'analysis.noData': 'विश्लेषण सुरू करण्यापूर्वी तुमचा सात दिवसांचा डेमो डेटा तयार करा.',
     'analysis.error': 'आम्ही तुमच्या शेताच्या पॅटर्नचे विश्लेषण करू शकलो नाही. कृपया पुन्हा प्रयत्न करा.',
 
+    // Actions & Recommendations
     'action.priority': 'प्राधान्य',
     'action.needsAttention': 'लक्ष आवश्यक',
     'action.whatHappened': 'कशाकडे लक्ष द्यायचे?',
     'action.whyShowing': 'हे का दाखवत आहोत?',
     'action.whatToDo': 'काय करावे',
     'action.tellOperator': 'तुमच्या ऑपरेटरला सांगा:',
-    'action.expectedResult': 'अपेक्षित निकाल:',
+    'action.expectedResult': 'अपेक्षित निकाल',
+    'action.generateAction': '💡 ॲक्शन जनरेट करा',
+    'action.generating': 'जनरेट करत आहे...',
+    'action.recommendedAction': '💡 शिफारस केलेला ॲक्शन',
+    'action.saveAction': 'ॲक्शन सेव्ह करा',
+    'action.dismiss': 'डिस्मिस',
     'action.step': 'पायरी',
     'action.confidence': 'मार्गदर्शनाचा विश्वास स्तर',
     'action.confidenceLow': 'कमी',
@@ -370,68 +630,71 @@ export const translations = {
     'action.error': 'कृती नोंदवता आली नाही',
     'action.statusRecommended': 'शिफारस केलेले',
     'action.statusWillTry': 'नियोजित',
-    'action.statusTried': 'करून पाहिले',
+    'action.statusTried': 'प्रयत्न केला',
     'action.statusNotRelevant': 'लागू नाही',
-    'action.statusUpdated': 'कृतीची स्थिती अद्ययावत केली आहे.',
+    'action.statusUpdated': 'कृती स्थिती अद्ययावत केली.',
     'action.statusError': 'आम्ही ही कृती अद्ययावत करू शकलो नाही. कृपया पुन्हा प्रयत्न करा.',
     'action.litres': 'लिटर',
     'action.noActions': 'अद्याप कोणतीही प्राधान्य कृती उपलब्ध नाही.',
-    'action.noActionsDescription': 'डेमो टेलिमेट्री डेटा तयार केल्यानंतर शेताचे विश्लेषण सुरू करा.',
+    'action.noActionsDescription': 'तुमचा डेमो टेलिमेट्री डेटा तयार केल्यानंतर शेती विश्लेषण चालवा.',
     'action.sessionsCountEvidence': 'हे {total} पैकी {unusual} समान कामाच्या सत्रांमध्ये दिसून आले.',
-    'action.attentionReduceIdleDesc': '{equipment} ने समान कामादरम्यान वारंवार जास्त वापराचा पॅटर्न दर्शविला.',
-    'action.attentionSpeedDesc': '{equipment} च्या कामाच्या वेगात समान कामादरम्यान जास्त फरक पडला.',
-    'action.attentionSprayerDesc': '{equipment} ने फवारणीच्या कामात असामान्य पॅटर्न दर्शविला.',
-    'action.attentionMonitorDesc': 'ठोस मार्गदर्शन देण्यापूर्वी {equipment} साठी आणखी एका तुलनात्मक सत्राची आवश्यकता आहे.',
+    'action.attentionReduceIdleDesc': '{equipment} ने समान कामादरम्यान जास्त वापराचा पुनरावृत्ती पॅटर्न दाखवला.',
+    'action.attentionSpeedDesc': '{equipment} मध्ये समान कामादरम्यान जास्त वेगाचा बदल दिसून आला.',
+    'action.attentionSprayerDesc': '{equipment} ने असामान्य फवारणी-काम पॅटर्न दाखवला.',
+    'action.attentionMonitorDesc': '{equipment} ला मजबूत मार्गदर्शन देण्यापूर्वी आणखी एका तुलनात्मक सत्राची गरज आहे.',
 
-    // Alert messages (NEW)
-    'alert.highIdleTime': 'निष्क्रिय वेळ जास्त',
-    'alert.lowFuel': 'इंधन कमी',
-    'alert.highSpeedVariation': 'वेगात बदल',
+    // Alerts
+    'alert.highIdleTime': 'जास्त निष्क्रिय वेळ',
+    'alert.lowFuel': 'कमी इंधन कार्यक्षमता',
+    'alert.highSpeedVariation': 'बदलणारा कामाचा वेग',
     'alert.repeated': 'पुनरावृत्ती',
     'alert.times': 'वेळा',
     'alert.viewPattern': 'पॅटर्न पहा',
     'alert.viewDetails': 'तपशील पहा',
 
-    // Today page (NEW)
-    'today.noAlerts': 'आज कोणतेही अलर्ट नाहीत',
-    'today.noAlertsDescription': 'सर्व मशीन सामान्यपणे काम करत आहेत.',
-
-    // Data ready / not ready (NEW)
-    'dataNotReady.title': 'शेताचा डेटा तयार नाही',
-    'dataNotReady.description': 'कृपया प्रथम तुमची उपकरणे जोडा आणि डेमो शेत डेटा तयार करा.',
-    'dataNotReady.connectDevices': 'उपकरणे जोडा',
-    'dataReady.title': 'शेताचा डेटा तयार आहे',
-    'dataReady.machines': '{count} जोडलेली उपकरणे',
-    'dataReady.days': '{count} दिवसांचा सिम्युलेटेड डेटा',
-    'dataReady.description': 'तुमचा डेटा तयार आहे आणि विश्लेषणासाठी सज्ज आहे.',
-
-    // Pattern page (NEW)
+    // Pattern Details
     'nav.patternDetails': 'पॅटर्न तपशील',
-    'pattern.repeatedPattern': 'पुनरावृत्ती होणारा पॅटर्न आढळला',
-    'pattern.whatsHappening': 'काय होत आहे:',
-    'pattern.had': 'ला',
+    'pattern.repeatedPattern': 'पुनरावृत्ती पॅटर्न आढळला',
+    'pattern.whatsHappening': 'काय घडत आहे:',
+    'pattern.had': 'मध्ये घडले',
     'pattern.timesIn7Days': 'मागील ७ दिवसांत वेळा',
-    'pattern.whenItHappens': 'जेव्हा होतो:',
+    'pattern.whenItHappens': 'कधी घडते:',
     'pattern.likelyReason': 'संभाव्य कारण:',
     'pattern.whatShouldIDo': 'मी काय करावे?',
     'pattern.now': 'आता',
-    'pattern.confidence': 'विश्वास स्तर',
+    'pattern.confidence': 'विश्वासार्हता',
     'pattern.notFound': 'पॅटर्न आढळला नाही',
     'pattern.notFoundDescription': 'या अलर्टसाठी कोणताही पुनरावृत्ती पॅटर्न आढळला नाही.',
+
+    // Action Recorded
+    'actionRecorded.title': 'कृती नोंदवली',
+    'actionRecorded.youWillTry': 'तुम्ही प्रयत्न कराल:',
+    'actionRecorded.nextStep': 'पुढील पायरी:',
+    'actionRecorded.weWillShow': 'आम्ही तुम्हाला दाखवू:',
+    'actionRecorded.idleComparison': 'आधी आणि नंतर निष्क्रिय वेळ',
+    'actionRecorded.dieselSaved': 'वाचवलेले डिझेल',
+    'actionRecorded.ok': 'ठीक आहे',
+
+    // Before/After Result
+    'beforeAfter.title': 'निकाल: कृती यशस्वी झाली',
+    'beforeAfter.before': 'आधी (दिवस ७ / २९ सप्टें):',
+    'beforeAfter.after': 'नंतर (दिवस ८ / ३० सप्टें):',
+    'beforeAfter.result': 'निकाल:',
+    'beforeAfter.savedLitres': '{litres} लिटर डिझेल वाचवले',
+    'beforeAfter.lessIdle': '{percent}% कमी निष्क्रिय वेळ',
+    'beforeAfter.savedRupees': 'आज ₹{amount} वाचवले',
+    'beforeAfter.shareResult': 'निकाल शेअर करा',
+    'beforeAfter.backToToday': 'आजच्या सूचनांकडे परत जा',
 
     'farmer.todayTitle': 'आज तुमच्या शेतात',
     'farmer.todayEmpty': 'यंत्रे जोडल्यानंतर आणि डेटा तयार झाल्यानंतर तुमच्या जोडलेल्या मशीनचा आढावा येथे दिसेल.',
     'farmer.goToEquipment': 'यंत्रांकडे जा',
-
     'farmer.actionPlanTitle': 'माझी कृती योजना',
     'farmer.actionPlanEmpty': 'विश्लेषण इंजिन समान कामाच्या सत्रांचे परीक्षण केल्यानंतर तुमचे प्राधान्यक्रमित कृती मार्गदर्शन येथे दिसेल.',
-
     'farmer.machinesTitle': 'माझी यंत्रे',
     'farmer.machinesEmpty': 'जोडलेल्या मशीनची स्थिती, डिझेल, कामाचा वेळ आणि कामकाजाचा आढावा येथे दिसेल.',
-
     'farmer.assistantTitle': 'शेती कृती सहाय्यक',
     'farmer.assistantEmpty': 'शेत विश्लेषण आणि कृती योजना कार्यप्रवाह पूर्ण झाल्यानंतर स्थानिक सहाय्यक जोडला जाईल.',
-
     'farmer.historyTitle': 'प्रश्न आणि कृती इतिहास',
     'farmer.historyEmpty': 'तुमचे जतन केलेले प्रश्न, शिफारसी आणि कृतीचे परिणाम येथे दिसतील.',
 
@@ -441,4 +704,4 @@ export const translations = {
   }
 } as const;
 
-export type TranslationKey = keyof typeof translations.en;
+export type TranslationKey = keyof typeof translations.en | string;

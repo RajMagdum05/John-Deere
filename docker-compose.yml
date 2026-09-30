@@ -1,57 +1,53 @@
 version: '3.8'
 
 services:
-  db:
+  postgres:
     image: postgres:15-alpine
-    container_name: jd_efficiency_db
+    container_name: jd_postgres
     restart: always
     environment:
-      POSTGRES_DB: john_deere_efficiency
-      POSTGRES_USER: jd_user
-      POSTGRES_PASSWORD: jd_password_2026
-    ports:
-      - "5432:5432"
+      POSTGRES_DB: farm_action_loop
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword2026
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U jd_user -d john_deere_efficiency"]
-      interval: 10s
+      test: ["CMD-SHELL", "pg_isready -U postgres -d farm_action_loop"]
+      interval: 5s
       timeout: 5s
       retries: 5
 
   backend:
-    build: ./backend
-    container_name: jd_efficiency_backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: jd_backend
     restart: always
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql://jd_user:jd_password_2026@db:5432/john_deere_efficiency
-      JOHN_DEERE_CLIENT_ID: YOUR_CLIENT_ID_HERE
-      JOHN_DEERE_CLIENT_SECRET: YOUR_CLIENT_SECRET_HERE
-      JOHN_DEERE_ORG_ID: YOUR_ORG_ID_HERE
-      JOHN_DEERE_SANDBOX_URL: https://sandboxapi.deere.com
-      JWT_SECRET_KEY: your_super_secret_jwt_key_change_in_production
+      DATABASE_URL: postgresql://postgres:postgrespassword2026@postgres:5432/farm_action_loop
+      PORT: 8000
     depends_on:
-      db:
+      postgres:
         condition: service_healthy
     volumes:
       - ./backend:/app
-    command: >
-      sh -c "pip install -r requirements.txt &&
-             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+      - /app/__pycache__
 
   frontend:
-    build: ./frontend
-    container_name: jd_efficiency_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: jd_frontend
     restart: always
     ports:
       - "3000:80"
+      - "5173:80"
     depends_on:
       - backend
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
 
 volumes:
   postgres_data:

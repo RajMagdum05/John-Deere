@@ -425,3 +425,117 @@ def get_today_summary_data(db: Session) -> Dict[str, Any]:
             else "Connect equipment and prepare data to view your farm summary."
         ),
     }
+
+
+def populate_demo_telemetry_sync(db: Session) -> int:
+    """Populate 7 days of demo telemetry synchronously for tests and immediate readiness."""
+    ensure_demo_fixtures(db)
+    connected_devices = connect_all_equipment_devices(db)
+    connected_ids = [d.id for d in connected_devices]
+
+    db.query(Measurement).filter(
+        Measurement.equipment_id.in_(connected_ids),
+        Measurement.id.like("demo-meas-%"),
+    ).delete(synchronize_session=False)
+
+    db.query(FieldOperation).filter(
+        FieldOperation.equipment_id.in_(connected_ids),
+        FieldOperation.id.like("demo-op-%"),
+    ).delete(synchronize_session=False)
+    db.commit()
+
+    rng = random.Random(DEMO_SEED)
+    end_date = datetime(2026, 9, 29, 18, 0, 0, tzinfo=timezone.utc)
+    base_engine_hours = {
+        "demo-5050d": 340.0,
+        "demo-5310": 520.0,
+        "demo-6120b": 810.0,
+        "demo-boom-sprayer": 160.0,
+    }
+
+    op_count = 0
+    for day_num in range(1, 8):
+        day_start_date = end_date - timedelta(days=(7 - day_num))
+        day_base = datetime(
+            day_start_date.year,
+            day_start_date.month,
+            day_start_date.day,
+            8,
+            0,
+            0,
+            tzinfo=timezone.utc,
+        )
+
+        for dev in connected_devices:
+            op_type = "TILLAGE"
+            if dev.id == "demo-boom-sprayer":
+                op_type = "SPRAYING"
+            elif dev.id == "demo-5050d" and day_num in (3, 6):
+                op_type = "HAULAGE"
+            elif dev.id == "demo-6120b" and day_num in (2, 5):
+                op_type = "HAULAGE"
+
+            area = 3.5 + rng.uniform(0.5, 2.5)
+            if dev.id == "demo-boom-sprayer":
+                area = 8.0 + rng.uniform(2.0, 5.0)
+
+            op_id = f"demo-op-{dev.id}-d{day_num}"
+            op_start = day_base + timedelta(minutes=rng.randint(0, 30))
+            op_end = op_start + timedelta(hours=rng.uniform(4.5, 6.5))
+
+            field_op = FieldOperation(
+                id=op_id,
+                equipment_id=dev.id,
+                operation_type=op_type,
+                start_time=op_start,
+                end_time=op_end,
+                area_hectares=round(area, 2),
+            )
+            db.add(field_op)
+            op_count += 1
+
+            num_meas = rng.randint(10, 14)
+            meas_interval = (op_end - op_start).total_seconds() / num_meas
+            fuel_level = 92.0 - (day_num * 5.0) + rng.uniform(-2.0, 2.0)
+            fuel_level = max(20.0, min(95.0, fuel_level))
+            curr_engine_hours = base_engine_hours.get(dev.id, 200.0) + (day_num * 5.2)
+            is_anomaly_day_6120 = (dev.id == "demo-6120b") and (day_num in (1, 3, 5, 7))
+
+            for m_idx in range(num_meas):
+                m_time = op_start + timedelta(seconds=m_idx * meas_interval)
+                if dev.id == "demo-5050d":
+                    speed = round(rng.uniform(7.2, 8.8), 2)
+                    fuel_rate = round(rng.uniform(7.5, 8.8), 2)
+                elif dev.id == "demo-5310":
+                    speed = round(rng.uniform(7.0, 9.8), 2)
+                    fuel_rate = round(rng.uniform(8.5, 10.2), 2)
+                elif dev.id == "demo-6120b":
+                    if is_anomaly_day_6120:
+                        speed = round(rng.uniform(3.5, 12.5), 2)
+                        fuel_rate = round(rng.uniform(12.0, 15.2), 2)
+                    else:
+                        speed = round(rng.uniform(8.0, 10.0), 2)
+                        fuel_rate = round(rng.uniform(9.5, 11.0), 2)
+                else:
+                    speed = round(rng.uniform(5.2, 6.8), 2)
+                    fuel_rate = round(rng.uniform(4.2, 5.8), 2)
+
+                lat = round(18.6200 + rng.uniform(-0.015, 0.015), 5)
+                lon = round(73.8000 + rng.uniform(-0.015, 0.015), 5)
+
+                meas = Measurement(
+                    id=f"demo-meas-{dev.id}-d{day_num}-{m_idx}",
+                    equipment_id=dev.id,
+                    timestamp=m_time,
+                    fuel_consumption_rate=fuel_rate,
+                    fuel_level=round(fuel_level - (m_idx * 0.8), 1),
+                    speed=speed,
+                    engine_hours=round(curr_engine_hours + (m_idx * (meas_interval / 3600.0)), 2),
+                    latitude=lat,
+                    longitude=lon,
+                )
+                db.add(meas)
+
+    db.commit()
+    simulation_state.set_completed("Demo farm data is ready.")
+    return op_count

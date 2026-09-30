@@ -1,14 +1,7 @@
 import axios from 'axios';
 import { Alert, TodaySummary } from '../types/farmAlert';
 
-interface CustomImportMeta {
-  env?: {
-    VITE_API_BASE_URL?: string;
-  };
-}
-
-const customMeta = import.meta as unknown as CustomImportMeta;
-const API_BASE_URL = customMeta.env?.VITE_API_BASE_URL || 'http://localhost:8000';
+import { API_BASE_URL } from './apiConfig';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,

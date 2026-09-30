@@ -32,7 +32,7 @@ def test_disconnect_single_equipment():
     assert response.status_code == 200
     data = response.json()
     assert data["id"] == "demo-5050d"
-    assert data["is_connected"] is false or data["is_connected"] is False
+    assert data["is_connected"] is False
     assert data["connected_at"] is None
 
 
