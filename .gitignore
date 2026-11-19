@@ -9,3 +9,8 @@ dist/
 .DS_Store
 venv/
 .env.local
+
+# Never commit credentials
+*CREDENTIALS*.md
+.env.*
+!.env.example
